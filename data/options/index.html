@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Options page :: Badge counter for Gmail</title>
+  </head>
+  <style type="text/css">
+    td:first-child {
+      width: 1px;
+      white-space: nowrap;
+    }
+    textarea,
+    input[type=text] {
+      width: 100%;
+      box-sizing: border-box;
+    }
+    input[type=number] {
+      width: 80px;
+    }
+    code {
+      background-color: rgba(0, 0, 0, 0.1);
+      padding: 1px 3px;
+    }
+  </style>
+
+  <body>
+    <table width="100%">
+      <tr>
+        <td>Badge color</td>
+        <td><input type="color" id="color"></td>
+      </tr>
+      <tr>
+        <td>Start-up delay (in seconds)</td>
+        <td><input type="number" id="delay"></td>
+      </tr>
+      <tr>
+        <td>Check period (in minutes)</td>
+        <td><input type="number" id="period"></td>
+      </tr>
+      <tr>
+        <td>Left-click open policy</td>
+        <td><select id="mode">
+          <option value="thread">Open newest thread</option>
+          <option value="query">Open the search query</option>
+          <option value="account">Open the account</option>
+        </select></td>
+      </tr>
+      <tr>
+        <td>Thread mode URL</td>
+        <td><input type="text" id="thread"></td>
+      </tr>
+      <tr>
+        <td>Query mode URL</td>
+        <td><input type="text" id="query"></td>
+      </tr>
+      <tr>
+        <td>Account mode URL</td>
+        <td><input type="text" id="account"></td>
+      </tr>
+      <tr>
+        <td>Single Gmail tab</td>
+        <td><input type="checkbox" id="single-tab"></td>
+      </tr>
+      <tr>
+        <td>Open in a background tab</td>
+        <td><input type="checkbox" id="in-background"></td>
+      </tr>
+      <tr>
+        <td>Open next to the active tab</td>
+        <td><input type="checkbox" id="next-to-active"></td>
+      </tr>
+    </table>
+    <p>Comma-separated list of search queries. To perform a search query in a nonprimary account use <code>a:account_number</code> in the query. For instance to search for all important emails in the third account  (/mail/u/2/) use <code>label:Important is:unread a:2</code> query.</p>
+    <textarea id="queries" rows="4"></textarea>
+
+    <p>
+      <input type="button" value="Support Development" id="support">
+      <input type="button" value="Save" id="save">
+      <span id=info></span>
+    </p>
+
+    <script src="/webext/utils/EventEmitter.js"></script>
+    <script src="/webext/core/base.js"></script>
+    <script src="/webext/core/chrome.storage.js"></script>
+    <script src="/webext/core/chrome.browserAction.js"></script>
+    <script src="/webext/core/chrome.tabs.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>

@@ -1,0 +1,1 @@
+../gmail-notifier/WebExtension/lib/gmail.js
